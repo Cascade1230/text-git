@@ -1,0 +1,9 @@
+dependencies {
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	implementation project(':product-service')
+  	implementation project(':order-service')
+}
+
+tasks.named('bootJar') {
+	enabled = true
+}

@@ -1,0 +1,5 @@
+rootProject.name = 'lecture021'
+include('api-service')
+include('order-service')
+include('product-service')
+include('user-service')

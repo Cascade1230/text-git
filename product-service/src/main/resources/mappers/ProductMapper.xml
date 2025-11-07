@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.example.product_service.repository.ProductMapper">
+	<select id="findAllProducts"
+		resultType="com.example.product_service.dto.ProductDto">
+		SELECT * FROM products
+	</select>
+
+	<select id="findProductById"
+		resultType="com.example.product_service.dto.ProductDto">
+		SELECT * FROM products WHERE id = #{id}
+	</select>
+
+	<insert id="saveProduct" keyColumn="id" keyProperty="id"
+		useGeneratedKeys="true">
+		INSERT INTO products(name, description, price, stock)
+		VALUES(#{name}, #{description}, #{price}, #{stock})
+	</insert>
+
+	<update id="updateProduct">
+		UPDATE products SET
+		name = #{updateProductDto.name},
+		description = #{updateProductDto.description},
+		price =
+		#{updateProductDto.price},
+		stock = #{updateProductDto.stock}
+		WHERE id =
+		#{id}
+	</update>
+
+	<delete id="deleteProductById">
+		DELETE FROM products WHERE id = #{id}
+	</delete>
+	
+	    <update id="updateStock">
+        UPDATE products SET stock = #{stock} WHERE id = #{id}
+    </update>
+</mapper>
