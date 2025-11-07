@@ -51,6 +51,7 @@ public class OrderController {
 	@DeleteMapping("/orders/{id}")
 	public ResponseEntity<OrderDto> deleteOrder(@PathVariable("id") int id) {
 		orderService.deleteOrder(id);
+		String too = "hello";
 		return ResponseEntity.ok().build();
 	}
 }
